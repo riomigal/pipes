@@ -54,4 +54,21 @@
       <p>{{ currency | currency: "EUR" }}</p>
     </div>
   </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="miles" class="form-label">Total miles</label>
+      <input
+        class="form-control"
+        (input)="onMilesChange($any($event.target).value)"
+        id="miles"
+        type="text"
+        placeholder=""
+        aria-label=""
+      />
+    </div>
+    <div class="col">
+      <label>Total kilometers</label>
+      <p *ngIf="(miles | convert: 'km') > 10">{{ miles | convert: "km" }}</p>
+    </div>
+  </div>
 </div>
